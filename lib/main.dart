@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nihon_shinbun/constants/_language.dart';
-import 'package:nihon_shinbun/models/data/article_tile.dart';
 import 'package:nihon_shinbun/pages/main_page.dart';
-import 'package:nihon_shinbun/views/article_tile_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final heroController = HeroController();
+
     return MaterialApp(
+      navigatorObservers: [heroController],
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
