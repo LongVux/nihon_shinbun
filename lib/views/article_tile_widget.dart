@@ -3,7 +3,9 @@ import 'package:intl/intl.dart';
 import 'package:nihon_shinbun/constants/route.dart';
 import 'package:nihon_shinbun/models/data/article_tile.dart';
 import 'package:nihon_shinbun/models/view/route_argument.dart';
+import 'package:nihon_shinbun/providers/main_page_provider.dart';
 import 'package:nihon_shinbun/views/image_hero.dart';
+import 'package:provider/provider.dart';
 
 class ArticleTileWidget extends StatefulWidget {
   const ArticleTileWidget({super.key, required this.articleTile});
@@ -17,10 +19,13 @@ class ArticleTileWidget extends StatefulWidget {
 class _ArticleTileWidgetState extends State<ArticleTileWidget> {
   @override
   Widget build(BuildContext context) {
+    final mainPageContext = Provider.of<MainPageContextProvider>(context);
+
     return GestureDetector(
       onTap: (() {
         Navigator.of(context).pushNamed(MainPageNestedRoute.article.toString(),
             arguments: ArticleRouteArgument(widget.articleTile.id));
+        mainPageContext.changeRoute(MainPageNestedRoute.article);
       }),
       child: SizedBox(
         height: 100,

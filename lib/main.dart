@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       navigatorObservers: [heroController],
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Nihon shinbun',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
